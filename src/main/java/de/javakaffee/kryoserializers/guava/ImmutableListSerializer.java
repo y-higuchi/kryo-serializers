@@ -17,9 +17,15 @@ public class ImmutableListSerializer extends Serializer<ImmutableList<Object>> {
 
     private static final boolean DOES_NOT_ACCEPT_NULL = false;
     private static final boolean IMMUTABLE = true;
+    public static final ImmutableListSerializer SERIALIZER = new ImmutableListSerializer();
 
     public ImmutableListSerializer() {
         super(DOES_NOT_ACCEPT_NULL, IMMUTABLE);
+    }
+
+    @Override
+    public boolean isImmutable() {
+        return IMMUTABLE;
     }
 
     @Override
